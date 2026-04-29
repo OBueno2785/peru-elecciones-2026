@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Leaflet */
+.leaflet-container {
+  background: #1a2744;
+  height: 100%;
+  width: 100%;
+}
+
+body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: system-ui, 'Segoe UI', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

@@ -1,0 +1,341 @@
+{
+  "resumen_general": {
+    "total_actas_analizadas": 22355,
+    "por_estado": {
+      "Contabilizada": 21371,
+      "Enviada JEE": 981,
+      "Pendiente": 3
+    },
+    "pct_contabilizadas": 95.6,
+    "pct_observadas": 0.0,
+    "pct_pendientes": 0.01
+  },
+  "estadisticas_votos": {
+    "electores_habiles": {
+      "n": 22355,
+      "total": 6349796,
+      "mean": 284.04,
+      "median": 299,
+      "stdev": 29.45,
+      "min": 57,
+      "max": 300
+    },
+    "votos_emitidos": {
+      "n": 22355,
+      "total": 4460767,
+      "mean": 199.54,
+      "median": 218,
+      "stdev": 60.07,
+      "min": 0,
+      "max": 292
+    },
+    "votos_validos": {
+      "n": 22355,
+      "total": 3677546,
+      "mean": 164.51,
+      "median": 176,
+      "stdev": 56.29,
+      "min": 0,
+      "max": 280
+    },
+    "participacion_pct": {
+      "n": 22355,
+      "total": 1566402.726,
+      "mean": 70.07,
+      "median": 75.45,
+      "stdev": 19.15,
+      "min": 0,
+      "max": 97.333
+    },
+    "total_votos_validos_global": 3677546,
+    "total_actas_con_datos": 22355
+  },
+  "top_15_partidos": [
+    {
+      "partido": "JUNTOS POR EL PERÚ",
+      "votos": 759413,
+      "pct_sobre_validos": 20.65,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "FUERZA POPULAR",
+      "votos": 448410,
+      "pct_sobre_validos": 12.19,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO CÍVICO OBRAS",
+      "votos": 422069,
+      "pct_sobre_validos": 11.48,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO DEL BUEN GOBIERNO",
+      "votos": 390984,
+      "pct_sobre_validos": 10.63,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "AHORA NACIÓN - AN",
+      "votos": 332184,
+      "pct_sobre_validos": 9.03,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "RENOVACIÓN POPULAR",
+      "votos": 272381,
+      "pct_sobre_validos": 7.41,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO PAÍS PARA TODOS",
+      "votos": 237627,
+      "pct_sobre_validos": 6.46,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+      "votos": 117518,
+      "pct_sobre_validos": 3.2,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO SICREO",
+      "votos": 115449,
+      "pct_sobre_validos": 3.14,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO FRENTE DE LA ESPERANZA 2021",
+      "votos": 78023,
+      "pct_sobre_validos": 2.12,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PODEMOS PERÚ",
+      "votos": 62325,
+      "pct_sobre_validos": 1.69,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+      "votos": 48586,
+      "pct_sobre_validos": 1.32,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "ALIANZA ELECTORAL VENCEREMOS",
+      "votos": 35768,
+      "pct_sobre_validos": 0.97,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "PARTIDO PATRIÓTICO DEL PERÚ",
+      "votos": 35477,
+      "pct_sobre_validos": 0.96,
+      "actas_con_votos": 22345
+    },
+    {
+      "partido": "ALIANZA PARA EL PROGRESO",
+      "votos": 34374,
+      "pct_sobre_validos": 0.93,
+      "actas_con_votos": 22345
+    }
+  ],
+  "votos_especiales": {
+    "en_blanco": 540093,
+    "nulos": 243128,
+    "impugnados": 0
+  },
+  "consistencia": {
+    "actas_con_inconsistencias": 0,
+    "pct_inconsistencias": 0.0,
+    "tipos_frecuentes": {},
+    "muestra_inconsistencias": []
+  },
+  "alertas_participacion": {
+    "total_alertas": 84,
+    "alta_participacion_gt95": 47,
+    "baja_participacion_lt20": 37,
+    "muestra": [
+      {
+        "tipo": "participacion_alta",
+        "mesa": "900610",
+        "pct": 96.667,
+        "dist": "SANTA ROSA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "900441",
+        "pct": 96.933,
+        "dist": "MATO"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "002056",
+        "pct": 14.182,
+        "dist": "HUACCHIS"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "002057",
+        "pct": 17.818,
+        "dist": "HUACCHIS"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "002058",
+        "pct": 13.139,
+        "dist": "HUACCHIS"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "002199",
+        "pct": 15.05,
+        "dist": "SAN PEDRO DE CHANA"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "002200",
+        "pct": 18.06,
+        "dist": "SAN PEDRO DE CHANA"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "002208",
+        "pct": 17.978,
+        "dist": "SAN PEDRO DE CHANA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "900325",
+        "pct": 95.89,
+        "dist": "MARCARA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "900326",
+        "pct": 96.818,
+        "dist": "MARCARA"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "017707",
+        "pct": 18.116,
+        "dist": "MEGANTONI"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "017714",
+        "pct": 19,
+        "dist": "MEGANTONI"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "017715",
+        "pct": 17,
+        "dist": "MEGANTONI"
+      },
+      {
+        "tipo": "participacion_baja",
+        "mesa": "017716",
+        "pct": 19.333,
+        "dist": "MEGANTONI"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "901761",
+        "pct": 97.015,
+        "dist": "SANTO TOMÁS"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "082474",
+        "pct": 95.667,
+        "dist": "BELLAVISTA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "082478",
+        "pct": 96.667,
+        "dist": "BELLAVISTA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "082480",
+        "pct": 96,
+        "dist": "BELLAVISTA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "082481",
+        "pct": 95.333,
+        "dist": "BELLAVISTA"
+      },
+      {
+        "tipo": "participacion_alta",
+        "mesa": "082482",
+        "pct": 95.333,
+        "dist": "BELLAVISTA"
+      }
+    ]
+  },
+  "por_departamento": [
+    {
+      "departamento": "AREQUIPA",
+      "actas": 4215,
+      "actas_contabilizadas": 4156,
+      "pct_contabilizadas": 98.6,
+      "total_votos_validos": 868665
+    },
+    {
+      "departamento": "CAJAMARCA",
+      "actas": 4240,
+      "actas_contabilizadas": 4011,
+      "pct_contabilizadas": 94.6,
+      "total_votos_validos": 610671
+    },
+    {
+      "departamento": "CALLAO",
+      "actas": 2898,
+      "actas_contabilizadas": 2774,
+      "pct_contabilizadas": 95.72,
+      "total_votos_validos": 554473
+    },
+    {
+      "departamento": "CUSCO",
+      "actas": 3035,
+      "actas_contabilizadas": 2924,
+      "pct_contabilizadas": 96.34,
+      "total_votos_validos": 520071
+    },
+    {
+      "departamento": "ÁNCASH",
+      "actas": 3472,
+      "actas_contabilizadas": 3215,
+      "pct_contabilizadas": 92.6,
+      "total_votos_validos": 503511
+    },
+    {
+      "departamento": "AYACUCHO",
+      "actas": 1900,
+      "actas_contabilizadas": 1824,
+      "pct_contabilizadas": 96.0,
+      "total_votos_validos": 272667
+    },
+    {
+      "departamento": "APURÍMAC",
+      "actas": 1317,
+      "actas_contabilizadas": 1270,
+      "pct_contabilizadas": 96.43,
+      "total_votos_validos": 194027
+    },
+    {
+      "departamento": "AMAZONAS",
+      "actas": 1278,
+      "actas_contabilizadas": 1197,
+      "pct_contabilizadas": 93.66,
+      "total_votos_validos": 153461
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# Python
+backend/venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+backend/*.log
+backend/logs_*.txt
+
+# Large data / PDFs
+backend/data/actas_pdf/
+backend/data/actas/
+
+# Runtime artifacts
+cloudflared.exe
+tunnel_*.txt
+*.html
+
+# Screenshots (test artifacts)
+*.png
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# Environment
+.env
+.env.local

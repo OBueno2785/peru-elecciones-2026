@@ -1,0 +1,92 @@
+=================================================================
+ANÁLISIS EXPLORATORIO DE ACTAS - ELECCIONES PERÚ 2026
+       Elección Presidencial (idEleccion=10)
+=================================================================
+
+--------------------------------------------------
+1. RESUMEN GENERAL
+--------------------------------------------------
+  Total actas analizadas :   22,355
+  Contabilizada         :   21,371  (95.6%)
+  Enviada JEE           :      981  (4.4%)
+  Pendiente             :        3  (0.0%)
+
+--------------------------------------------------
+2. ESTADÍSTICAS DE VOTOS POR MESA
+--------------------------------------------------
+  Actas con datos        :   22,355
+  Total votos válidos    : 3,677,546
+
+  Electores hábiles:
+    Total  =  6,349,796   Media  = 284.0
+    Mediana= 299.0   Stdev  = 29.4
+    Min    = 57.0   Max    = 300.0
+
+  Votos emitidos:
+    Total  =  4,460,767   Media  = 199.5
+    Mediana= 218.0   Stdev  = 60.1
+    Min    = 0.0   Max    = 292.0
+
+  Votos válidos:
+    Total  =  3,677,546   Media  = 164.5
+    Mediana= 176.0   Stdev  = 56.3
+    Min    = 0.0   Max    = 280.0
+
+  Participación (%):
+    Total  =  1,566,403   Media  = 70.1
+    Mediana= 75.5   Stdev  = 19.1
+    Min    = 0.0   Max    = 97.3
+
+--------------------------------------------------
+3. TOP 15 PARTIDOS / CANDIDATOS (por votos válidos)
+--------------------------------------------------
+  #   Partido/Candidato                            Votos       %
+  --- ---------------------------------------- --------- -------
+  1   JUNTOS POR EL PERÚ                         759,413  20.65%
+  2   FUERZA POPULAR                             448,410  12.19%
+  3   PARTIDO CÍVICO OBRAS                       422,069  11.48%
+  4   PARTIDO DEL BUEN GOBIERNO                  390,984  10.63%
+  5   AHORA NACIÓN - AN                          332,184   9.03%
+  6   RENOVACIÓN POPULAR                         272,381   7.41%
+  7   PARTIDO PAÍS PARA TODOS                    237,627   6.46%
+  8   PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA,    117,518   3.20%
+  9   PARTIDO SICREO                             115,449   3.14%
+  10  PARTIDO FRENTE DE LA ESPERANZA 2021         78,023   2.12%
+  11  PODEMOS PERÚ                                62,325   1.69%
+  12  PARTIDO POLÍTICO COOPERACIÓN POPULAR        48,586   1.32%
+  13  ALIANZA ELECTORAL VENCEREMOS                35,768   0.97%
+  14  PARTIDO PATRIÓTICO DEL PERÚ                 35,477   0.96%
+  15  ALIANZA PARA EL PROGRESO                    34,374   0.93%
+
+  Votos en blanco :  540,093  (14.69% de válidos)
+  Votos nulos     :  243,128
+  Votos impugnados:        0
+
+--------------------------------------------------
+4. CONSISTENCIA NUMÉRICA
+--------------------------------------------------
+  Actas con inconsistencias: 0 (0.00%)
+
+--------------------------------------------------
+5. ALERTAS DE PARTICIPACIÓN
+--------------------------------------------------
+  Participación > 95%: 47 mesas
+  Participación < 20%: 37 mesas
+
+--------------------------------------------------
+6. DISTRIBUCIÓN POR DEPARTAMENTO
+--------------------------------------------------
+  Departamento                Actas  Contab.  %Cont.    V.Válidos
+  ------------------------- ------- -------- ------- ------------
+  AREQUIPA                    4,215    4,156   98.6%      868,665
+  CAJAMARCA                   4,240    4,011   94.6%      610,671
+  CALLAO                      2,898    2,774   95.7%      554,473
+  CUSCO                       3,035    2,924   96.3%      520,071
+  ÁNCASH                      3,472    3,215   92.6%      503,511
+  AYACUCHO                    1,900    1,824   96.0%      272,667
+  APURÍMAC                    1,317    1,270   96.4%      194,027
+  AMAZONAS                    1,278    1,197   93.7%      153,461
+
+=================================================================
+FIN DEL REPORTE
+=================================================================

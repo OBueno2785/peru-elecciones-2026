@@ -1,0 +1,1699 @@
+{
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/proceso/proceso-electoral-activo": {
+    "success": true,
+    "message": "",
+    "data": {
+      "id": 2,
+      "nombre": "ELECCIONES GENERALES Y PARLAMENTO ANDINO 2026",
+      "acronimo": "EG2026",
+      "fechaProceso": 1775970000000,
+      "idEleccionPrincipal": 10,
+      "tipoProcesoElectoral": "bicameralidad",
+      "activoFechaProceso": true
+    }
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/proceso/2/elecciones": {
+    "success": true,
+    "message": "Se ejecutó correctamente la operación",
+    "data": [
+      {
+        "id": 1,
+        "nombre": "Resumen General",
+        "padre": 0,
+        "hijos": false,
+        "icono": "icon-ico_resumen_general",
+        "orden": 1,
+        "idEleccion": 0,
+        "url": "/main/resumen",
+        "esPrincipal": false,
+        "descripcion": ""
+      },
+      {
+        "id": 31,
+        "nombre": "Presidencial",
+        "padre": 0,
+        "hijos": false,
+        "icono": "icon-ico_e_presidencial",
+        "orden": 31,
+        "idEleccion": 10,
+        "url": "/main/presidenciales",
+        "esPrincipal": true,
+        "descripcion": "Elección de Fórmula Presidencial"
+      },
+      {
+        "id": 32,
+        "nombre": "Senadores",
+        "padre": 0,
+        "hijos": true,
+        "icono": "icon-ico_senadores",
+        "orden": 32,
+        "idEleccion": 0,
+        "url": "",
+        "esPrincipal": false,
+        "descripcion": ""
+      },
+      {
+        "id": 34,
+        "nombre": "Senadores distrito electoral único",
+        "padre": 32,
+        "hijos": false,
+        "icono": "icon-ico-senado_33",
+        "orden": 33,
+        "idEleccion": 15,
+        "url": "/main/senadores-distrito-nacional-unico",
+        "esPrincipal": false,
+        "descripcion": "Elección Cámara de Senadores - Distrito Electoral Único (Nacional)"
+      },
+      {
+        "id": 33,
+        "nombre": "Senadores distrito electoral múltiple",
+        "padre": 32,
+        "hijos": false,
+        "icono": "icon-ico-senado_27",
+        "orden": 34,
+        "idEleccion": 14,
+        "url": "/main/senadores-distrito-electoral-multiple",
+        "esPrincipal": false,
+        "descripcion": "Elección Cámara de Senadores - Distrito Electoral Múltiple (Regional)"
+      },
+      {
+        "id": 35,
+        "nombre": "Diputados",
+        "padre": 0,
+        "hijos": false,
+        "icono": "icon-ico_e_diputados",
+        "orden": 35,
+        "idEleccion": 13,
+        "url": "/main/diputados",
+        "esPrincipal": false,
+        "descripcion": "Elección Cámara de Diputados"
+      },
+      {
+        "id": 36,
+        "nombre": "Parlamento Andino",
+        "padre": 0,
+        "hijos": false,
+        "icono": "icon-ico_e_parlamento",
+        "orden": 36,
+        "idEleccion": 12,
+        "url": "/main/parlamento-andino",
+        "esPrincipal": false,
+        "descripcion": "Elección Parlamento Andino"
+      },
+      {
+        "id": 51,
+        "nombre": "Participación Ciudadana",
+        "padre": 0,
+        "hijos": false,
+        "icono": "icon-ico-participacion2",
+        "orden": 51,
+        "idEleccion": 0,
+        "url": "/main/participacion-ciudadana",
+        "esPrincipal": false,
+        "descripcion": "Participación ciudadana"
+      },
+      {
+        "id": 52,
+        "nombre": "Actas",
+        "padre": 0,
+        "hijos": false,
+        "icono": "icon-ico_menu_actas",
+        "orden": 52,
+        "idEleccion": 0,
+        "url": "/main/actas",
+        "esPrincipal": false,
+        "descripcion": "Actas"
+      }
+    ]
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idEleccion=10&tipoFiltro=eleccion": {
+    "success": true,
+    "message": "",
+    "data": [
+      {
+        "nombreAgrupacionPolitica": "PERÚ MODERNO",
+        "codigoAgrupacionPolitica": 4,
+        "nombreCandidato": "CARLOS ERNESTO JAICO CARRANZA",
+        "dniCandidato": "06529088",
+        "totalVotosValidos": 5335,
+        "porcentajeVotosValidos": 0.054,
+        "porcentajeVotosEmitidos": 0.046
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DE LOS TRABAJADORES Y EMPRENDEDORES PTE - PERÚ",
+        "codigoAgrupacionPolitica": 15,
+        "nombreCandidato": "NAPOLEON BECERRA GARCIA",
+        "dniCandidato": "08058852",
+        "totalVotosValidos": 6529,
+        "porcentajeVotosValidos": 0.066,
+        "porcentajeVotosEmitidos": 0.056
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PRIN",
+        "codigoAgrupacionPolitica": 30,
+        "nombreCandidato": "WALTER GILMER CHIRINOS PURIZAGA",
+        "dniCandidato": "18870364",
+        "totalVotosValidos": 7794,
+        "porcentajeVotosValidos": 0.078,
+        "porcentajeVotosEmitidos": 0.067
+      },
+      {
+        "nombreAgrupacionPolitica": "SALVEMOS AL PERÚ",
+        "codigoAgrupacionPolitica": 36,
+        "nombreCandidato": "ANTONIO ORTIZ VILLANO",
+        "dniCandidato": "08587486",
+        "totalVotosValidos": 7900,
+        "porcentajeVotosValidos": 0.079,
+        "porcentajeVotosEmitidos": 0.068
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRATICO FEDERAL",
+        "codigoAgrupacionPolitica": 19,
+        "nombreCandidato": "ARMANDO JOAQUIN MASSE FERNANDEZ",
+        "dniCandidato": "08255194",
+        "totalVotosValidos": 11697,
+        "porcentajeVotosValidos": 0.118,
+        "porcentajeVotosEmitidos": 0.101
+      },
+      {
+        "nombreAgrupacionPolitica": "FE EN EL PERÚ",
+        "codigoAgrupacionPolitica": 5,
+        "nombreCandidato": "ALVARO GONZALO PAZ DE LA BARRA FREIGEIRO",
+        "dniCandidato": "41904418",
+        "totalVotosValidos": 11934,
+        "porcentajeVotosValidos": 0.12,
+        "porcentajeVotosEmitidos": 0.103
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA Y LIBERTAD",
+        "codigoAgrupacionPolitica": 9,
+        "nombreCandidato": "FIORELLA GIANNINA MOLINELLI ARISTONDO",
+        "dniCandidato": "25681995",
+        "totalVotosValidos": 15495,
+        "porcentajeVotosValidos": 0.156,
+        "porcentajeVotosEmitidos": 0.133
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ ACCIÓN",
+        "codigoAgrupacionPolitica": 28,
+        "nombreCandidato": "FRANCISCO ERNESTO DIEZ-CANSECO TÁVARA",
+        "dniCandidato": "08263758",
+        "totalVotosValidos": 17208,
+        "porcentajeVotosValidos": 0.173,
+        "porcentajeVotosEmitidos": 0.148
+      },
+      {
+        "nombreAgrupacionPolitica": "AVANZA PAÍS - PARTIDO DE INTEGRACIÓN SOCIAL",
+        "codigoAgrupacionPolitica": 7,
+        "nombreCandidato": "JOSE DANIEL WILLIAMS ZAPATA",
+        "dniCandidato": "43287528",
+        "totalVotosValidos": 19749,
+        "porcentajeVotosValidos": 0.198,
+        "porcentajeVotosEmitidos": 0.17
+      },
+      {
+        "nombreAgrupacionPolitica": "LIBERTAD POPULAR",
+        "codigoAgrupacionPolitica": 11,
+        "nombreCandidato": "RAFAEL JORGE BELAUNDE LLOSA",
+        "dniCandidato": "10219647",
+        "totalVotosValidos": 23824,
+        "porcentajeVotosValidos": 0.239,
+        "porcentajeVotosEmitidos": 0.205
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA VERDE",
+        "codigoAgrupacionPolitica": 18,
+        "nombreCandidato": "ALEX GONZALES CASTILLO",
+        "dniCandidato": "09307547",
+        "totalVotosValidos": 32434,
+        "porcentajeVotosValidos": 0.326,
+        "porcentajeVotosEmitidos": 0.279
+      },
+      {
+        "nombreAgrupacionPolitica": "PROGRESEMOS",
+        "codigoAgrupacionPolitica": 34,
+        "nombreCandidato": "PAUL DAVIS JAIMES BLANCO",
+        "dniCandidato": "40139245",
+        "totalVotosValidos": 38020,
+        "porcentajeVotosValidos": 0.382,
+        "porcentajeVotosEmitidos": 0.327
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO INTEGRIDAD DEMOCRÁTICA",
+        "codigoAgrupacionPolitica": 26,
+        "nombreCandidato": "WOLFGANG MARIO GROZO COSTA",
+        "dniCandidato": "07260881",
+        "totalVotosValidos": 41614,
+        "porcentajeVotosValidos": 0.418,
+        "porcentajeVotosEmitidos": 0.358
+      },
+      {
+        "nombreAgrupacionPolitica": "UNIDAD NACIONAL",
+        "codigoAgrupacionPolitica": 38,
+        "nombreCandidato": "ROBERTO ENRIQUE CHIABRA LEON",
+        "dniCandidato": "40728264",
+        "totalVotosValidos": 46434,
+        "porcentajeVotosValidos": 0.467,
+        "porcentajeVotosEmitidos": 0.4
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO NACIONAL PERÚ LIBRE",
+        "codigoAgrupacionPolitica": 27,
+        "nombreCandidato": "VLADIMIR ROY CERRON ROJAS",
+        "dniCandidato": "06466585",
+        "totalVotosValidos": 49512,
+        "porcentajeVotosValidos": 0.498,
+        "porcentajeVotosEmitidos": 0.426
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO MORADO",
+        "codigoAgrupacionPolitica": 22,
+        "nombreCandidato": "MESIAS ANTONIO GUEVARA AMASIFUEN",
+        "dniCandidato": "09871134",
+        "totalVotosValidos": 52105,
+        "porcentajeVotosValidos": 0.524,
+        "porcentajeVotosEmitidos": 0.449
+      },
+      {
+        "nombreAgrupacionPolitica": "UN CAMINO DIFERENTE",
+        "codigoAgrupacionPolitica": 37,
+        "nombreCandidato": "ROSARIO DEL PILAR FERNANDEZ BAZAN",
+        "dniCandidato": "18141156",
+        "totalVotosValidos": 52940,
+        "porcentajeVotosValidos": 0.532,
+        "porcentajeVotosEmitidos": 0.456
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA UNIDO PERÚ",
+        "codigoAgrupacionPolitica": 17,
+        "nombreCandidato": "CHARLIE CARRASCO SALAZAR",
+        "dniCandidato": "40799023",
+        "totalVotosValidos": 62258,
+        "porcentajeVotosValidos": 0.626,
+        "porcentajeVotosEmitidos": 0.536
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA ELECTORAL VENCEREMOS",
+        "codigoAgrupacionPolitica": 3,
+        "nombreCandidato": "RONALD DARWIN ATENCIO SOTOMAYOR",
+        "dniCandidato": "41373494",
+        "totalVotosValidos": 69252,
+        "porcentajeVotosValidos": 0.696,
+        "porcentajeVotosEmitidos": 0.596
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ PRIMERO",
+        "codigoAgrupacionPolitica": 29,
+        "nombreCandidato": "MARIO ENRIQUE VIZCARRA CORNEJO",
+        "dniCandidato": "04411300",
+        "totalVotosValidos": 74658,
+        "porcentajeVotosValidos": 0.75,
+        "porcentajeVotosEmitidos": 0.643
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PATRIÓTICO DEL PERÚ",
+        "codigoAgrupacionPolitica": 24,
+        "nombreCandidato": "HERBERT CALLER GUTIERREZ",
+        "dniCandidato": "43409673",
+        "totalVotosValidos": 79655,
+        "porcentajeVotosValidos": 0.8,
+        "porcentajeVotosEmitidos": 0.686
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRÁTICO SOMOS PERÚ",
+        "codigoAgrupacionPolitica": 20,
+        "nombreCandidato": "GEORGE PATRICK FORSYTH SOMMER",
+        "dniCandidato": "41265978",
+        "totalVotosValidos": 80191,
+        "porcentajeVotosValidos": 0.806,
+        "porcentajeVotosEmitidos": 0.69
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA PARA EL PROGRESO",
+        "codigoAgrupacionPolitica": 1,
+        "nombreCandidato": "CESAR ACUÑA PERALTA",
+        "dniCandidato": "17903382",
+        "totalVotosValidos": 88297,
+        "porcentajeVotosValidos": 0.887,
+        "porcentajeVotosEmitidos": 0.76
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO APRISTA PERUANO",
+        "codigoAgrupacionPolitica": 12,
+        "nombreCandidato": "PITTER ENRIQUE VALDERRAMA PEÑA",
+        "dniCandidato": "43632186",
+        "totalVotosValidos": 91143,
+        "porcentajeVotosValidos": 0.916,
+        "porcentajeVotosEmitidos": 0.785
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 25,
+        "nombreCandidato": "YONHY LESCANO ANCIETA",
+        "dniCandidato": "01211014",
+        "totalVotosValidos": 120896,
+        "porcentajeVotosValidos": 1.215,
+        "porcentajeVotosEmitidos": 1.041
+      },
+      {
+        "nombreAgrupacionPolitica": "PODEMOS PERÚ",
+        "codigoAgrupacionPolitica": 32,
+        "nombreCandidato": "JOSE LEON LUNA GALVEZ",
+        "dniCandidato": "07246887",
+        "totalVotosValidos": 127277,
+        "porcentajeVotosValidos": 1.279,
+        "porcentajeVotosEmitidos": 1.096
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO FRENTE DE LA ESPERANZA 2021",
+        "codigoAgrupacionPolitica": 21,
+        "nombreCandidato": "LUIS FERNANDO OLIVERA VEGA",
+        "dniCandidato": "06280714",
+        "totalVotosValidos": 182616,
+        "porcentajeVotosValidos": 1.835,
+        "porcentajeVotosEmitidos": 1.572
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO SICREO",
+        "codigoAgrupacionPolitica": 31,
+        "nombreCandidato": "ALFONSO CARLOS ESPA Y GARCES-ALVEAR",
+        "dniCandidato": "10266270",
+        "totalVotosValidos": 369215,
+        "porcentajeVotosValidos": 3.71,
+        "porcentajeVotosEmitidos": 3.179
+      },
+      {
+        "nombreAgrupacionPolitica": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+        "codigoAgrupacionPolitica": 33,
+        "nombreCandidato": "MARIA SOLEDAD PEREZ TELLO",
+        "dniCandidato": "07867789",
+        "totalVotosValidos": 387160,
+        "porcentajeVotosValidos": 3.891,
+        "porcentajeVotosEmitidos": 3.333
+      },
+      {
+        "nombreAgrupacionPolitica": "AHORA NACIÓN - AN",
+        "codigoAgrupacionPolitica": 2,
+        "nombreCandidato": "PABLO ALFONSO LOPEZ CHAU NAVA",
+        "dniCandidato": "25331980",
+        "totalVotosValidos": 758796,
+        "porcentajeVotosValidos": 7.625,
+        "porcentajeVotosEmitidos": 6.533
+      },
+      {
+        "nombreAgrupacionPolitica": "JUNTOS POR EL PERÚ",
+        "codigoAgrupacionPolitica": 10,
+        "nombreCandidato": "ROBERTO HELBERT SANCHEZ PALOMINO",
+        "dniCandidato": "16002918",
+        "totalVotosValidos": 805249,
+        "porcentajeVotosValidos": 8.092,
+        "porcentajeVotosEmitidos": 6.933
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PAÍS PARA TODOS",
+        "codigoAgrupacionPolitica": 23,
+        "nombreCandidato": "CARLOS GONSALO ALVAREZ LOAYZA",
+        "dniCandidato": "06002034",
+        "totalVotosValidos": 839536,
+        "porcentajeVotosValidos": 8.437,
+        "porcentajeVotosEmitidos": 7.228
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO CÍVICO OBRAS",
+        "codigoAgrupacionPolitica": 14,
+        "nombreCandidato": "RICARDO PABLO BELMONT CASSINELLI",
+        "dniCandidato": "09177250",
+        "totalVotosValidos": 982191,
+        "porcentajeVotosValidos": 9.87,
+        "porcentajeVotosEmitidos": 8.457
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEL BUEN GOBIERNO",
+        "codigoAgrupacionPolitica": 16,
+        "nombreCandidato": "JORGE NIETO MONTESINOS",
+        "dniCandidato": "06506278",
+        "totalVotosValidos": 1268679,
+        "porcentajeVotosValidos": 12.749,
+        "porcentajeVotosEmitidos": 10.923
+      },
+      {
+        "nombreAgrupacionPolitica": "RENOVACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 35,
+        "nombreCandidato": "RAFAEL BERNARDO LÓPEZ ALIAGA CAZORLA",
+        "dniCandidato": "07845838",
+        "totalVotosValidos": 1435846,
+        "porcentajeVotosValidos": 14.429,
+        "porcentajeVotosEmitidos": 12.363
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA POPULAR",
+        "codigoAgrupacionPolitica": 8,
+        "nombreCandidato": "KEIKO SOFIA FUJIMORI HIGUCHI",
+        "dniCandidato": "10001088",
+        "totalVotosValidos": 1687382,
+        "porcentajeVotosValidos": 16.957,
+        "porcentajeVotosEmitidos": 14.528
+      }
+    ]
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/totales?idEleccion=10&tipoFiltro=eleccion": {
+    "success": true,
+    "message": "",
+    "data": {
+      "actasContabilizadas": 54.499,
+      "contabilizadas": 50557,
+      "totalActas": 92766,
+      "participacionCiudadana": 42.504,
+      "actasEnviadasJee": 0.172,
+      "enviadasJee": 160,
+      "actasPendientesJee": 45.329,
+      "pendientesJee": 42049,
+      "fechaActualizacion": 1776098821819,
+      "idUbigeoDepartamento": 140000,
+      "idUbigeoProvincia": 140100,
+      "idUbigeoDistrito": 140101,
+      "idUbigeoDistritoElectoral": 15,
+      "totalVotosEmitidos": 11614496,
+      "totalVotosValidos": 9950821,
+      "porcentajeVotosEmitidos": 100,
+      "porcentajeVotosValidos": 100
+    }
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/totales?idEleccion=15&tipoFiltro=eleccion": {
+    "success": true,
+    "message": "",
+    "data": {
+      "actasContabilizadas": 12.339,
+      "contabilizadas": 11446,
+      "totalActas": 92766,
+      "participacionCiudadana": 9.759,
+      "actasEnviadasJee": 0.02,
+      "enviadasJee": 19,
+      "actasPendientesJee": 87.641,
+      "pendientesJee": 81301,
+      "fechaActualizacion": 1776098821819,
+      "idUbigeoDepartamento": 140000,
+      "idUbigeoProvincia": 140100,
+      "idUbigeoDistrito": 140101,
+      "idUbigeoDistritoElectoral": 15,
+      "totalVotosEmitidos": 2666638,
+      "totalVotosValidos": 2140960,
+      "porcentajeVotosEmitidos": 100,
+      "porcentajeVotosValidos": 100
+    }
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idAmbitoGeografico=1&idEleccion=14&tipoFiltro=distrito_electoral&idDistritoElectoral=15": {
+    "success": true,
+    "message": "",
+    "data": [
+      {
+        "nombreAgrupacionPolitica": "SALVEMOS AL PERÚ",
+        "codigoAgrupacionPolitica": 36,
+        "totalVotosValidos": 1142,
+        "porcentajeVotosValidos": 0.067,
+        "porcentajeVotosEmitidos": 0.051
+      },
+      {
+        "nombreAgrupacionPolitica": "PERÚ MODERNO",
+        "codigoAgrupacionPolitica": 4,
+        "totalVotosValidos": 1228,
+        "porcentajeVotosValidos": 0.072,
+        "porcentajeVotosEmitidos": 0.055
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DE LOS TRABAJADORES Y EMPRENDEDORES PTE - PERÚ",
+        "codigoAgrupacionPolitica": 15,
+        "totalVotosValidos": 1529,
+        "porcentajeVotosValidos": 0.089,
+        "porcentajeVotosEmitidos": 0.069
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRATICO FEDERAL",
+        "codigoAgrupacionPolitica": 19,
+        "totalVotosValidos": 1727,
+        "porcentajeVotosValidos": 0.101,
+        "porcentajeVotosEmitidos": 0.078
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PRIN",
+        "codigoAgrupacionPolitica": 30,
+        "totalVotosValidos": 1920,
+        "porcentajeVotosValidos": 0.112,
+        "porcentajeVotosEmitidos": 0.086
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ ACCIÓN",
+        "codigoAgrupacionPolitica": 28,
+        "totalVotosValidos": 1972,
+        "porcentajeVotosValidos": 0.115,
+        "porcentajeVotosEmitidos": 0.089
+      },
+      {
+        "nombreAgrupacionPolitica": "FE EN EL PERÚ",
+        "codigoAgrupacionPolitica": 5,
+        "totalVotosValidos": 2389,
+        "porcentajeVotosValidos": 0.14,
+        "porcentajeVotosEmitidos": 0.107
+      },
+      {
+        "nombreAgrupacionPolitica": "UN CAMINO DIFERENTE",
+        "codigoAgrupacionPolitica": 37,
+        "totalVotosValidos": 3015,
+        "porcentajeVotosValidos": 0.176,
+        "porcentajeVotosEmitidos": 0.136
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA Y LIBERTAD",
+        "codigoAgrupacionPolitica": 9,
+        "totalVotosValidos": 3085,
+        "porcentajeVotosValidos": 0.18,
+        "porcentajeVotosEmitidos": 0.139
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA VERDE",
+        "codigoAgrupacionPolitica": 18,
+        "totalVotosValidos": 5451,
+        "porcentajeVotosValidos": 0.319,
+        "porcentajeVotosEmitidos": 0.245
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO NACIONAL PERÚ LIBRE",
+        "codigoAgrupacionPolitica": 27,
+        "totalVotosValidos": 5844,
+        "porcentajeVotosValidos": 0.342,
+        "porcentajeVotosEmitidos": 0.263
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA ELECTORAL VENCEREMOS",
+        "codigoAgrupacionPolitica": 3,
+        "totalVotosValidos": 7140,
+        "porcentajeVotosValidos": 0.418,
+        "porcentajeVotosEmitidos": 0.321
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA UNIDO PERÚ",
+        "codigoAgrupacionPolitica": 17,
+        "totalVotosValidos": 7792,
+        "porcentajeVotosValidos": 0.456,
+        "porcentajeVotosEmitidos": 0.35
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 25,
+        "totalVotosValidos": 8129,
+        "porcentajeVotosValidos": 0.475,
+        "porcentajeVotosEmitidos": 0.366
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO INTEGRIDAD DEMOCRÁTICA",
+        "codigoAgrupacionPolitica": 26,
+        "totalVotosValidos": 8515,
+        "porcentajeVotosValidos": 0.498,
+        "porcentajeVotosEmitidos": 0.383
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ PRIMERO",
+        "codigoAgrupacionPolitica": 29,
+        "totalVotosValidos": 9356,
+        "porcentajeVotosValidos": 0.547,
+        "porcentajeVotosEmitidos": 0.421
+      },
+      {
+        "nombreAgrupacionPolitica": "UNIDAD NACIONAL",
+        "codigoAgrupacionPolitica": 38,
+        "totalVotosValidos": 9709,
+        "porcentajeVotosValidos": 0.568,
+        "porcentajeVotosEmitidos": 0.437
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PATRIÓTICO DEL PERÚ",
+        "codigoAgrupacionPolitica": 24,
+        "totalVotosValidos": 9862,
+        "porcentajeVotosValidos": 0.577,
+        "porcentajeVotosEmitidos": 0.444
+      },
+      {
+        "nombreAgrupacionPolitica": "LIBERTAD POPULAR",
+        "codigoAgrupacionPolitica": 11,
+        "totalVotosValidos": 9992,
+        "porcentajeVotosValidos": 0.584,
+        "porcentajeVotosEmitidos": 0.449
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO MORADO",
+        "codigoAgrupacionPolitica": 22,
+        "totalVotosValidos": 11361,
+        "porcentajeVotosValidos": 0.664,
+        "porcentajeVotosEmitidos": 0.511
+      },
+      {
+        "nombreAgrupacionPolitica": "AVANZA PAÍS - PARTIDO DE INTEGRACIÓN SOCIAL",
+        "codigoAgrupacionPolitica": 7,
+        "totalVotosValidos": 11892,
+        "porcentajeVotosValidos": 0.695,
+        "porcentajeVotosEmitidos": 0.535
+      },
+      {
+        "nombreAgrupacionPolitica": "PROGRESEMOS",
+        "codigoAgrupacionPolitica": 34,
+        "totalVotosValidos": 14533,
+        "porcentajeVotosValidos": 0.85,
+        "porcentajeVotosEmitidos": 0.654
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA PARA EL PROGRESO",
+        "codigoAgrupacionPolitica": 1,
+        "totalVotosValidos": 15266,
+        "porcentajeVotosValidos": 0.893,
+        "porcentajeVotosEmitidos": 0.687
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRÁTICO SOMOS PERÚ",
+        "codigoAgrupacionPolitica": 20,
+        "totalVotosValidos": 17832,
+        "porcentajeVotosValidos": 1.043,
+        "porcentajeVotosEmitidos": 0.802
+      },
+      {
+        "nombreAgrupacionPolitica": "PODEMOS PERÚ",
+        "codigoAgrupacionPolitica": 32,
+        "totalVotosValidos": 19878,
+        "porcentajeVotosValidos": 1.162,
+        "porcentajeVotosEmitidos": 0.894
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO FRENTE DE LA ESPERANZA 2021",
+        "codigoAgrupacionPolitica": 21,
+        "totalVotosValidos": 22317,
+        "porcentajeVotosValidos": 1.305,
+        "porcentajeVotosEmitidos": 1.004
+      },
+      {
+        "nombreAgrupacionPolitica": "FRENTE POPULAR AGRÍCOLA FÍA DEL PERÚ",
+        "codigoAgrupacionPolitica": 6,
+        "totalVotosValidos": 22911,
+        "porcentajeVotosValidos": 1.34,
+        "porcentajeVotosEmitidos": 1.03
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO APRISTA PERUANO",
+        "codigoAgrupacionPolitica": 12,
+        "totalVotosValidos": 33152,
+        "porcentajeVotosValidos": 1.939,
+        "porcentajeVotosEmitidos": 1.491
+      },
+      {
+        "nombreAgrupacionPolitica": "JUNTOS POR EL PERÚ",
+        "codigoAgrupacionPolitica": 10,
+        "totalVotosValidos": 45437,
+        "porcentajeVotosValidos": 2.657,
+        "porcentajeVotosEmitidos": 2.043
+      },
+      {
+        "nombreAgrupacionPolitica": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+        "codigoAgrupacionPolitica": 33,
+        "totalVotosValidos": 83382,
+        "porcentajeVotosValidos": 4.876,
+        "porcentajeVotosEmitidos": 3.75
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PAÍS PARA TODOS",
+        "codigoAgrupacionPolitica": 23,
+        "totalVotosValidos": 111682,
+        "porcentajeVotosValidos": 6.531,
+        "porcentajeVotosEmitidos": 5.023
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO CÍVICO OBRAS",
+        "codigoAgrupacionPolitica": 14,
+        "totalVotosValidos": 136068,
+        "porcentajeVotosValidos": 7.957,
+        "porcentajeVotosEmitidos": 6.119
+      },
+      {
+        "nombreAgrupacionPolitica": "AHORA NACIÓN - AN",
+        "codigoAgrupacionPolitica": 2,
+        "totalVotosValidos": 148685,
+        "porcentajeVotosValidos": 8.695,
+        "porcentajeVotosEmitidos": 6.687
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA POPULAR",
+        "codigoAgrupacionPolitica": 8,
+        "totalVotosValidos": 253163,
+        "porcentajeVotosValidos": 14.805,
+        "porcentajeVotosEmitidos": 11.386
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEL BUEN GOBIERNO",
+        "codigoAgrupacionPolitica": 16,
+        "totalVotosValidos": 293391,
+        "porcentajeVotosValidos": 17.158,
+        "porcentajeVotosEmitidos": 13.195
+      },
+      {
+        "nombreAgrupacionPolitica": "RENOVACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 35,
+        "totalVotosValidos": 369204,
+        "porcentajeVotosValidos": 21.591,
+        "porcentajeVotosEmitidos": 16.604
+      }
+    ]
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/totales?idAmbitoGeografico=1&idEleccion=14&tipoFiltro=distrito_electoral&idDistritoElectoral=15": {
+    "success": true,
+    "message": "",
+    "data": {
+      "actasContabilizadas": 35.653,
+      "contabilizadas": 9401,
+      "totalActas": 26368,
+      "participacionCiudadana": 28.425,
+      "actasEnviadasJee": 0.0,
+      "enviadasJee": 0,
+      "actasPendientesJee": 64.347,
+      "pendientesJee": 16967,
+      "fechaActualizacion": 1776098821819,
+      "idUbigeoDepartamento": 140000,
+      "idUbigeoProvincia": 140100,
+      "idUbigeoDistrito": 140101,
+      "idUbigeoDistritoElectoral": 15,
+      "totalVotosEmitidos": 2223533,
+      "totalVotosValidos": 1709951,
+      "porcentajeVotosEmitidos": 100,
+      "porcentajeVotosValidos": 100
+    }
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idEleccion=15&tipoFiltro=eleccion": {
+    "success": true,
+    "message": "",
+    "data": [
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRATICO FEDERAL",
+        "codigoAgrupacionPolitica": 19,
+        "totalVotosValidos": 2190,
+        "porcentajeVotosValidos": 0.102,
+        "porcentajeVotosEmitidos": 0.082
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DE LOS TRABAJADORES Y EMPRENDEDORES PTE - PERÚ",
+        "codigoAgrupacionPolitica": 15,
+        "totalVotosValidos": 2269,
+        "porcentajeVotosValidos": 0.106,
+        "porcentajeVotosEmitidos": 0.085
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PRIN",
+        "codigoAgrupacionPolitica": 30,
+        "totalVotosValidos": 2655,
+        "porcentajeVotosValidos": 0.124,
+        "porcentajeVotosEmitidos": 0.1
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ ACCIÓN",
+        "codigoAgrupacionPolitica": 28,
+        "totalVotosValidos": 2670,
+        "porcentajeVotosValidos": 0.125,
+        "porcentajeVotosEmitidos": 0.1
+      },
+      {
+        "nombreAgrupacionPolitica": "FE EN EL PERÚ",
+        "codigoAgrupacionPolitica": 5,
+        "totalVotosValidos": 3130,
+        "porcentajeVotosValidos": 0.146,
+        "porcentajeVotosEmitidos": 0.117
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA Y LIBERTAD",
+        "codigoAgrupacionPolitica": 9,
+        "totalVotosValidos": 3922,
+        "porcentajeVotosValidos": 0.183,
+        "porcentajeVotosEmitidos": 0.147
+      },
+      {
+        "nombreAgrupacionPolitica": "UN CAMINO DIFERENTE",
+        "codigoAgrupacionPolitica": 37,
+        "totalVotosValidos": 4600,
+        "porcentajeVotosValidos": 0.215,
+        "porcentajeVotosEmitidos": 0.173
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA VERDE",
+        "codigoAgrupacionPolitica": 18,
+        "totalVotosValidos": 7125,
+        "porcentajeVotosValidos": 0.333,
+        "porcentajeVotosEmitidos": 0.267
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO NACIONAL PERÚ LIBRE",
+        "codigoAgrupacionPolitica": 27,
+        "totalVotosValidos": 7802,
+        "porcentajeVotosValidos": 0.364,
+        "porcentajeVotosEmitidos": 0.293
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO INTEGRIDAD DEMOCRÁTICA",
+        "codigoAgrupacionPolitica": 26,
+        "totalVotosValidos": 9726,
+        "porcentajeVotosValidos": 0.454,
+        "porcentajeVotosEmitidos": 0.365
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA ELECTORAL VENCEREMOS",
+        "codigoAgrupacionPolitica": 3,
+        "totalVotosValidos": 10052,
+        "porcentajeVotosValidos": 0.47,
+        "porcentajeVotosEmitidos": 0.377
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA UNIDO PERÚ",
+        "codigoAgrupacionPolitica": 17,
+        "totalVotosValidos": 11076,
+        "porcentajeVotosValidos": 0.517,
+        "porcentajeVotosEmitidos": 0.415
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 25,
+        "totalVotosValidos": 11237,
+        "porcentajeVotosValidos": 0.525,
+        "porcentajeVotosEmitidos": 0.421
+      },
+      {
+        "nombreAgrupacionPolitica": "LIBERTAD POPULAR",
+        "codigoAgrupacionPolitica": 11,
+        "totalVotosValidos": 12017,
+        "porcentajeVotosValidos": 0.561,
+        "porcentajeVotosEmitidos": 0.451
+      },
+      {
+        "nombreAgrupacionPolitica": "UNIDAD NACIONAL",
+        "codigoAgrupacionPolitica": 38,
+        "totalVotosValidos": 12235,
+        "porcentajeVotosValidos": 0.571,
+        "porcentajeVotosEmitidos": 0.459
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PATRIÓTICO DEL PERÚ",
+        "codigoAgrupacionPolitica": 24,
+        "totalVotosValidos": 12509,
+        "porcentajeVotosValidos": 0.584,
+        "porcentajeVotosEmitidos": 0.469
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO MORADO",
+        "codigoAgrupacionPolitica": 22,
+        "totalVotosValidos": 13074,
+        "porcentajeVotosValidos": 0.611,
+        "porcentajeVotosEmitidos": 0.49
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ PRIMERO",
+        "codigoAgrupacionPolitica": 29,
+        "totalVotosValidos": 13140,
+        "porcentajeVotosValidos": 0.614,
+        "porcentajeVotosEmitidos": 0.493
+      },
+      {
+        "nombreAgrupacionPolitica": "AVANZA PAÍS - PARTIDO DE INTEGRACIÓN SOCIAL",
+        "codigoAgrupacionPolitica": 7,
+        "totalVotosValidos": 16535,
+        "porcentajeVotosValidos": 0.772,
+        "porcentajeVotosEmitidos": 0.62
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRÁTICO SOMOS PERÚ",
+        "codigoAgrupacionPolitica": 20,
+        "totalVotosValidos": 22270,
+        "porcentajeVotosValidos": 1.04,
+        "porcentajeVotosEmitidos": 0.835
+      },
+      {
+        "nombreAgrupacionPolitica": "PROGRESEMOS",
+        "codigoAgrupacionPolitica": 34,
+        "totalVotosValidos": 22719,
+        "porcentajeVotosValidos": 1.061,
+        "porcentajeVotosEmitidos": 0.852
+      },
+      {
+        "nombreAgrupacionPolitica": "FRENTE POPULAR AGRÍCOLA FÍA DEL PERÚ",
+        "codigoAgrupacionPolitica": 6,
+        "totalVotosValidos": 24734,
+        "porcentajeVotosValidos": 1.155,
+        "porcentajeVotosEmitidos": 0.928
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO FRENTE DE LA ESPERANZA 2021",
+        "codigoAgrupacionPolitica": 21,
+        "totalVotosValidos": 26596,
+        "porcentajeVotosValidos": 1.242,
+        "porcentajeVotosEmitidos": 0.997
+      },
+      {
+        "nombreAgrupacionPolitica": "PODEMOS PERÚ",
+        "codigoAgrupacionPolitica": 32,
+        "totalVotosValidos": 28683,
+        "porcentajeVotosValidos": 1.34,
+        "porcentajeVotosEmitidos": 1.076
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA PARA EL PROGRESO",
+        "codigoAgrupacionPolitica": 1,
+        "totalVotosValidos": 37027,
+        "porcentajeVotosValidos": 1.729,
+        "porcentajeVotosEmitidos": 1.389
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO APRISTA PERUANO",
+        "codigoAgrupacionPolitica": 12,
+        "totalVotosValidos": 43749,
+        "porcentajeVotosValidos": 2.043,
+        "porcentajeVotosEmitidos": 1.641
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO SICREO",
+        "codigoAgrupacionPolitica": 31,
+        "totalVotosValidos": 70474,
+        "porcentajeVotosValidos": 3.292,
+        "porcentajeVotosEmitidos": 2.643
+      },
+      {
+        "nombreAgrupacionPolitica": "JUNTOS POR EL PERÚ",
+        "codigoAgrupacionPolitica": 10,
+        "totalVotosValidos": 80271,
+        "porcentajeVotosValidos": 3.749,
+        "porcentajeVotosEmitidos": 3.01
+      },
+      {
+        "nombreAgrupacionPolitica": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+        "codigoAgrupacionPolitica": 33,
+        "totalVotosValidos": 103860,
+        "porcentajeVotosValidos": 4.851,
+        "porcentajeVotosEmitidos": 3.895
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PAÍS PARA TODOS",
+        "codigoAgrupacionPolitica": 23,
+        "totalVotosValidos": 136614,
+        "porcentajeVotosValidos": 6.381,
+        "porcentajeVotosEmitidos": 5.123
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO CÍVICO OBRAS",
+        "codigoAgrupacionPolitica": 14,
+        "totalVotosValidos": 159215,
+        "porcentajeVotosValidos": 7.437,
+        "porcentajeVotosEmitidos": 5.971
+      },
+      {
+        "nombreAgrupacionPolitica": "AHORA NACIÓN - AN",
+        "codigoAgrupacionPolitica": 2,
+        "totalVotosValidos": 185097,
+        "porcentajeVotosValidos": 8.646,
+        "porcentajeVotosEmitidos": 6.941
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA POPULAR",
+        "codigoAgrupacionPolitica": 8,
+        "totalVotosValidos": 308345,
+        "porcentajeVotosValidos": 14.402,
+        "porcentajeVotosEmitidos": 11.563
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEL BUEN GOBIERNO",
+        "codigoAgrupacionPolitica": 16,
+        "totalVotosValidos": 322326,
+        "porcentajeVotosValidos": 15.055,
+        "porcentajeVotosEmitidos": 12.087
+      },
+      {
+        "nombreAgrupacionPolitica": "RENOVACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 35,
+        "totalVotosValidos": 411016,
+        "porcentajeVotosValidos": 19.198,
+        "porcentajeVotosEmitidos": 15.413
+      }
+    ]
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idAmbitoGeografico=1&idEleccion=13&tipoFiltro=distrito_electoral&idDistritoElectoral=15": {
+    "success": true,
+    "message": "",
+    "data": [
+      {
+        "nombreAgrupacionPolitica": "SALVEMOS AL PERÚ",
+        "codigoAgrupacionPolitica": 36,
+        "totalVotosValidos": 1784,
+        "porcentajeVotosValidos": 0.101,
+        "porcentajeVotosEmitidos": 0.082
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRATICO FEDERAL",
+        "codigoAgrupacionPolitica": 19,
+        "totalVotosValidos": 2135,
+        "porcentajeVotosValidos": 0.121,
+        "porcentajeVotosEmitidos": 0.098
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DE LOS TRABAJADORES Y EMPRENDEDORES PTE - PERÚ",
+        "codigoAgrupacionPolitica": 15,
+        "totalVotosValidos": 2195,
+        "porcentajeVotosValidos": 0.124,
+        "porcentajeVotosEmitidos": 0.1
+      },
+      {
+        "nombreAgrupacionPolitica": "PERÚ MODERNO",
+        "codigoAgrupacionPolitica": 4,
+        "totalVotosValidos": 2285,
+        "porcentajeVotosValidos": 0.129,
+        "porcentajeVotosEmitidos": 0.104
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ ACCIÓN",
+        "codigoAgrupacionPolitica": 28,
+        "totalVotosValidos": 2369,
+        "porcentajeVotosValidos": 0.134,
+        "porcentajeVotosEmitidos": 0.108
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PRIN",
+        "codigoAgrupacionPolitica": 30,
+        "totalVotosValidos": 2647,
+        "porcentajeVotosValidos": 0.15,
+        "porcentajeVotosEmitidos": 0.121
+      },
+      {
+        "nombreAgrupacionPolitica": "UN CAMINO DIFERENTE",
+        "codigoAgrupacionPolitica": 37,
+        "totalVotosValidos": 3021,
+        "porcentajeVotosValidos": 0.171,
+        "porcentajeVotosEmitidos": 0.138
+      },
+      {
+        "nombreAgrupacionPolitica": "FE EN EL PERÚ",
+        "codigoAgrupacionPolitica": 5,
+        "totalVotosValidos": 3385,
+        "porcentajeVotosValidos": 0.191,
+        "porcentajeVotosEmitidos": 0.155
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA Y LIBERTAD",
+        "codigoAgrupacionPolitica": 9,
+        "totalVotosValidos": 3684,
+        "porcentajeVotosValidos": 0.208,
+        "porcentajeVotosEmitidos": 0.168
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA VERDE",
+        "codigoAgrupacionPolitica": 18,
+        "totalVotosValidos": 6083,
+        "porcentajeVotosValidos": 0.344,
+        "porcentajeVotosEmitidos": 0.278
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO NACIONAL PERÚ LIBRE",
+        "codigoAgrupacionPolitica": 27,
+        "totalVotosValidos": 6901,
+        "porcentajeVotosValidos": 0.39,
+        "porcentajeVotosEmitidos": 0.316
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 25,
+        "totalVotosValidos": 8288,
+        "porcentajeVotosValidos": 0.469,
+        "porcentajeVotosEmitidos": 0.379
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO INTEGRIDAD DEMOCRÁTICA",
+        "codigoAgrupacionPolitica": 26,
+        "totalVotosValidos": 8376,
+        "porcentajeVotosValidos": 0.474,
+        "porcentajeVotosEmitidos": 0.383
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA UNIDO PERÚ",
+        "codigoAgrupacionPolitica": 17,
+        "totalVotosValidos": 8926,
+        "porcentajeVotosValidos": 0.505,
+        "porcentajeVotosEmitidos": 0.408
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA ELECTORAL VENCEREMOS",
+        "codigoAgrupacionPolitica": 3,
+        "totalVotosValidos": 9186,
+        "porcentajeVotosValidos": 0.52,
+        "porcentajeVotosEmitidos": 0.42
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PATRIÓTICO DEL PERÚ",
+        "codigoAgrupacionPolitica": 24,
+        "totalVotosValidos": 10278,
+        "porcentajeVotosValidos": 0.581,
+        "porcentajeVotosEmitidos": 0.47
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ PRIMERO",
+        "codigoAgrupacionPolitica": 29,
+        "totalVotosValidos": 10984,
+        "porcentajeVotosValidos": 0.621,
+        "porcentajeVotosEmitidos": 0.502
+      },
+      {
+        "nombreAgrupacionPolitica": "UNIDAD NACIONAL",
+        "codigoAgrupacionPolitica": 38,
+        "totalVotosValidos": 11311,
+        "porcentajeVotosValidos": 0.64,
+        "porcentajeVotosEmitidos": 0.517
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO MORADO",
+        "codigoAgrupacionPolitica": 22,
+        "totalVotosValidos": 14753,
+        "porcentajeVotosValidos": 0.835,
+        "porcentajeVotosEmitidos": 0.674
+      },
+      {
+        "nombreAgrupacionPolitica": "PROGRESEMOS",
+        "codigoAgrupacionPolitica": 34,
+        "totalVotosValidos": 16455,
+        "porcentajeVotosValidos": 0.931,
+        "porcentajeVotosEmitidos": 0.752
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA PARA EL PROGRESO",
+        "codigoAgrupacionPolitica": 1,
+        "totalVotosValidos": 20156,
+        "porcentajeVotosValidos": 1.14,
+        "porcentajeVotosEmitidos": 0.922
+      },
+      {
+        "nombreAgrupacionPolitica": "LIBERTAD POPULAR",
+        "codigoAgrupacionPolitica": 11,
+        "totalVotosValidos": 20700,
+        "porcentajeVotosValidos": 1.171,
+        "porcentajeVotosEmitidos": 0.946
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO FRENTE DE LA ESPERANZA 2021",
+        "codigoAgrupacionPolitica": 21,
+        "totalVotosValidos": 21169,
+        "porcentajeVotosValidos": 1.198,
+        "porcentajeVotosEmitidos": 0.968
+      },
+      {
+        "nombreAgrupacionPolitica": "AVANZA PAÍS - PARTIDO DE INTEGRACIÓN SOCIAL",
+        "codigoAgrupacionPolitica": 7,
+        "totalVotosValidos": 22299,
+        "porcentajeVotosValidos": 1.261,
+        "porcentajeVotosEmitidos": 1.019
+      },
+      {
+        "nombreAgrupacionPolitica": "PODEMOS PERÚ",
+        "codigoAgrupacionPolitica": 32,
+        "totalVotosValidos": 22959,
+        "porcentajeVotosValidos": 1.299,
+        "porcentajeVotosEmitidos": 1.05
+      },
+      {
+        "nombreAgrupacionPolitica": "FRENTE POPULAR AGRÍCOLA FÍA DEL PERÚ",
+        "codigoAgrupacionPolitica": 6,
+        "totalVotosValidos": 23339,
+        "porcentajeVotosValidos": 1.32,
+        "porcentajeVotosEmitidos": 1.067
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRÁTICO SOMOS PERÚ",
+        "codigoAgrupacionPolitica": 20,
+        "totalVotosValidos": 30104,
+        "porcentajeVotosValidos": 1.703,
+        "porcentajeVotosEmitidos": 1.376
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO APRISTA PERUANO",
+        "codigoAgrupacionPolitica": 12,
+        "totalVotosValidos": 37431,
+        "porcentajeVotosValidos": 2.117,
+        "porcentajeVotosEmitidos": 1.711
+      },
+      {
+        "nombreAgrupacionPolitica": "JUNTOS POR EL PERÚ",
+        "codigoAgrupacionPolitica": 10,
+        "totalVotosValidos": 46446,
+        "porcentajeVotosValidos": 2.627,
+        "porcentajeVotosEmitidos": 2.123
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO SICREO",
+        "codigoAgrupacionPolitica": 31,
+        "totalVotosValidos": 50876,
+        "porcentajeVotosValidos": 2.878,
+        "porcentajeVotosEmitidos": 2.326
+      },
+      {
+        "nombreAgrupacionPolitica": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+        "codigoAgrupacionPolitica": 33,
+        "totalVotosValidos": 77847,
+        "porcentajeVotosValidos": 4.404,
+        "porcentajeVotosEmitidos": 3.559
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PAÍS PARA TODOS",
+        "codigoAgrupacionPolitica": 23,
+        "totalVotosValidos": 105712,
+        "porcentajeVotosValidos": 5.98,
+        "porcentajeVotosEmitidos": 4.833
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO CÍVICO OBRAS",
+        "codigoAgrupacionPolitica": 14,
+        "totalVotosValidos": 127954,
+        "porcentajeVotosValidos": 7.238,
+        "porcentajeVotosEmitidos": 5.85
+      },
+      {
+        "nombreAgrupacionPolitica": "AHORA NACIÓN - AN",
+        "codigoAgrupacionPolitica": 2,
+        "totalVotosValidos": 162631,
+        "porcentajeVotosValidos": 9.2,
+        "porcentajeVotosEmitidos": 7.435
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA POPULAR",
+        "codigoAgrupacionPolitica": 8,
+        "totalVotosValidos": 239175,
+        "porcentajeVotosValidos": 13.53,
+        "porcentajeVotosEmitidos": 10.935
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEL BUEN GOBIERNO",
+        "codigoAgrupacionPolitica": 16,
+        "totalVotosValidos": 270227,
+        "porcentajeVotosValidos": 15.287,
+        "porcentajeVotosEmitidos": 12.355
+      },
+      {
+        "nombreAgrupacionPolitica": "RENOVACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 35,
+        "totalVotosValidos": 353661,
+        "porcentajeVotosValidos": 20.006,
+        "porcentajeVotosEmitidos": 16.169
+      }
+    ]
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/totales?idAmbitoGeografico=1&idEleccion=13&tipoFiltro=distrito_electoral&idDistritoElectoral=15": {
+    "success": true,
+    "message": "",
+    "data": {
+      "actasContabilizadas": 35.069,
+      "contabilizadas": 9247,
+      "totalActas": 26368,
+      "participacionCiudadana": 27.961,
+      "actasEnviadasJee": 0.0,
+      "enviadasJee": 0,
+      "actasPendientesJee": 64.931,
+      "pendientesJee": 17121,
+      "fechaActualizacion": 1776098821819,
+      "idUbigeoDepartamento": 140000,
+      "idUbigeoProvincia": 140100,
+      "idUbigeoDistrito": 140101,
+      "idUbigeoDistritoElectoral": 15,
+      "totalVotosEmitidos": 2187266,
+      "totalVotosValidos": 1767732,
+      "porcentajeVotosEmitidos": 100,
+      "porcentajeVotosValidos": 100
+    }
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/distrito-electoral/distritos": {
+    "success": true,
+    "message": "",
+    "data": [
+      {
+        "codigo": 1,
+        "nombre": "AMAZONAS"
+      },
+      {
+        "codigo": 2,
+        "nombre": "ÁNCASH"
+      },
+      {
+        "codigo": 3,
+        "nombre": "APURÍMAC"
+      },
+      {
+        "codigo": 4,
+        "nombre": "AREQUIPA"
+      },
+      {
+        "codigo": 5,
+        "nombre": "AYACUCHO"
+      },
+      {
+        "codigo": 6,
+        "nombre": "CAJAMARCA"
+      },
+      {
+        "codigo": 7,
+        "nombre": "CALLAO"
+      },
+      {
+        "codigo": 8,
+        "nombre": "CUSCO"
+      },
+      {
+        "codigo": 9,
+        "nombre": "HUANCAVELICA"
+      },
+      {
+        "codigo": 10,
+        "nombre": "HUÁNUCO"
+      },
+      {
+        "codigo": 11,
+        "nombre": "ICA"
+      },
+      {
+        "codigo": 12,
+        "nombre": "JUNÍN"
+      },
+      {
+        "codigo": 13,
+        "nombre": "LA LIBERTAD"
+      },
+      {
+        "codigo": 14,
+        "nombre": "LAMBAYEQUE"
+      },
+      {
+        "codigo": 15,
+        "nombre": "LIMA METROPOLITANA"
+      },
+      {
+        "codigo": 16,
+        "nombre": "LIMA PROVINCIAS"
+      },
+      {
+        "codigo": 17,
+        "nombre": "LORETO"
+      },
+      {
+        "codigo": 18,
+        "nombre": "MADRE DE DIOS"
+      },
+      {
+        "codigo": 19,
+        "nombre": "MOQUEGUA"
+      },
+      {
+        "codigo": 20,
+        "nombre": "PASCO"
+      },
+      {
+        "codigo": 21,
+        "nombre": "PIURA"
+      },
+      {
+        "codigo": 22,
+        "nombre": "PUNO"
+      },
+      {
+        "codigo": 23,
+        "nombre": "SAN MARTÍN"
+      },
+      {
+        "codigo": 24,
+        "nombre": "TACNA"
+      },
+      {
+        "codigo": 25,
+        "nombre": "TUMBES"
+      },
+      {
+        "codigo": 26,
+        "nombre": "UCAYALI"
+      },
+      {
+        "codigo": 27,
+        "nombre": "PERUANOS RESIDENTES EN EL EXTRANJERO"
+      }
+    ]
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/totales?idEleccion=12&tipoFiltro=eleccion": {
+    "success": true,
+    "message": "",
+    "data": {
+      "actasContabilizadas": 11.758,
+      "contabilizadas": 10907,
+      "totalActas": 92766,
+      "participacionCiudadana": 9.327,
+      "actasEnviadasJee": 0.003,
+      "enviadasJee": 3,
+      "actasPendientesJee": 88.239,
+      "pendientesJee": 81856,
+      "fechaActualizacion": 1776098821819,
+      "idUbigeoDepartamento": 140000,
+      "idUbigeoProvincia": 140100,
+      "idUbigeoDistrito": 140101,
+      "idUbigeoDistritoElectoral": 15,
+      "totalVotosEmitidos": 2548631,
+      "totalVotosValidos": 1884671,
+      "porcentajeVotosEmitidos": 100,
+      "porcentajeVotosValidos": 100
+    }
+  },
+  "https://resultadoelectoral.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idEleccion=12&tipoFiltro=eleccion": {
+    "success": true,
+    "message": "",
+    "data": [
+      {
+        "nombreAgrupacionPolitica": "PERÚ MODERNO",
+        "codigoAgrupacionPolitica": 4,
+        "totalVotosValidos": 1683,
+        "porcentajeVotosValidos": 0.089,
+        "porcentajeVotosEmitidos": 0.066
+      },
+      {
+        "nombreAgrupacionPolitica": "SALVEMOS AL PERÚ",
+        "codigoAgrupacionPolitica": 36,
+        "totalVotosValidos": 1835,
+        "porcentajeVotosValidos": 0.097,
+        "porcentajeVotosEmitidos": 0.072
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DE LOS TRABAJADORES Y EMPRENDEDORES PTE - PERÚ",
+        "codigoAgrupacionPolitica": 15,
+        "totalVotosValidos": 1972,
+        "porcentajeVotosValidos": 0.105,
+        "porcentajeVotosEmitidos": 0.077
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PRIN",
+        "codigoAgrupacionPolitica": 30,
+        "totalVotosValidos": 2417,
+        "porcentajeVotosValidos": 0.128,
+        "porcentajeVotosEmitidos": 0.095
+      },
+      {
+        "nombreAgrupacionPolitica": "FE EN EL PERÚ",
+        "codigoAgrupacionPolitica": 5,
+        "totalVotosValidos": 2702,
+        "porcentajeVotosValidos": 0.143,
+        "porcentajeVotosEmitidos": 0.106
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA Y LIBERTAD",
+        "codigoAgrupacionPolitica": 9,
+        "totalVotosValidos": 3666,
+        "porcentajeVotosValidos": 0.195,
+        "porcentajeVotosEmitidos": 0.144
+      },
+      {
+        "nombreAgrupacionPolitica": "UN CAMINO DIFERENTE",
+        "codigoAgrupacionPolitica": 37,
+        "totalVotosValidos": 3799,
+        "porcentajeVotosValidos": 0.202,
+        "porcentajeVotosEmitidos": 0.149
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA VERDE",
+        "codigoAgrupacionPolitica": 18,
+        "totalVotosValidos": 6576,
+        "porcentajeVotosValidos": 0.349,
+        "porcentajeVotosEmitidos": 0.258
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO NACIONAL PERÚ LIBRE",
+        "codigoAgrupacionPolitica": 27,
+        "totalVotosValidos": 8207,
+        "porcentajeVotosValidos": 0.435,
+        "porcentajeVotosEmitidos": 0.322
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 25,
+        "totalVotosValidos": 9034,
+        "porcentajeVotosValidos": 0.479,
+        "porcentajeVotosEmitidos": 0.354
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMÓCRATA UNIDO PERÚ",
+        "codigoAgrupacionPolitica": 17,
+        "totalVotosValidos": 9177,
+        "porcentajeVotosValidos": 0.487,
+        "porcentajeVotosEmitidos": 0.36
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA ELECTORAL VENCEREMOS",
+        "codigoAgrupacionPolitica": 3,
+        "totalVotosValidos": 9523,
+        "porcentajeVotosValidos": 0.505,
+        "porcentajeVotosEmitidos": 0.374
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO INTEGRIDAD DEMOCRÁTICA",
+        "codigoAgrupacionPolitica": 26,
+        "totalVotosValidos": 9866,
+        "porcentajeVotosValidos": 0.523,
+        "porcentajeVotosEmitidos": 0.387
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO POLÍTICO PERÚ PRIMERO",
+        "codigoAgrupacionPolitica": 29,
+        "totalVotosValidos": 11065,
+        "porcentajeVotosValidos": 0.587,
+        "porcentajeVotosEmitidos": 0.434
+      },
+      {
+        "nombreAgrupacionPolitica": "UNIDAD NACIONAL",
+        "codigoAgrupacionPolitica": 38,
+        "totalVotosValidos": 11779,
+        "porcentajeVotosValidos": 0.625,
+        "porcentajeVotosEmitidos": 0.462
+      },
+      {
+        "nombreAgrupacionPolitica": "LIBERTAD POPULAR",
+        "codigoAgrupacionPolitica": 11,
+        "totalVotosValidos": 12081,
+        "porcentajeVotosValidos": 0.641,
+        "porcentajeVotosEmitidos": 0.474
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PATRIÓTICO DEL PERÚ",
+        "codigoAgrupacionPolitica": 24,
+        "totalVotosValidos": 12310,
+        "porcentajeVotosValidos": 0.653,
+        "porcentajeVotosEmitidos": 0.483
+      },
+      {
+        "nombreAgrupacionPolitica": "AVANZA PAÍS - PARTIDO DE INTEGRACIÓN SOCIAL",
+        "codigoAgrupacionPolitica": 7,
+        "totalVotosValidos": 12399,
+        "porcentajeVotosValidos": 0.658,
+        "porcentajeVotosEmitidos": 0.486
+      },
+      {
+        "nombreAgrupacionPolitica": "ALIANZA PARA EL PROGRESO",
+        "codigoAgrupacionPolitica": 1,
+        "totalVotosValidos": 15558,
+        "porcentajeVotosValidos": 0.826,
+        "porcentajeVotosEmitidos": 0.61
+      },
+      {
+        "nombreAgrupacionPolitica": "PROGRESEMOS",
+        "codigoAgrupacionPolitica": 34,
+        "totalVotosValidos": 16160,
+        "porcentajeVotosValidos": 0.857,
+        "porcentajeVotosEmitidos": 0.634
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO MORADO",
+        "codigoAgrupacionPolitica": 22,
+        "totalVotosValidos": 18071,
+        "porcentajeVotosValidos": 0.959,
+        "porcentajeVotosEmitidos": 0.709
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEMOCRÁTICO SOMOS PERÚ",
+        "codigoAgrupacionPolitica": 20,
+        "totalVotosValidos": 19521,
+        "porcentajeVotosValidos": 1.036,
+        "porcentajeVotosEmitidos": 0.766
+      },
+      {
+        "nombreAgrupacionPolitica": "PODEMOS PERÚ",
+        "codigoAgrupacionPolitica": 32,
+        "totalVotosValidos": 20688,
+        "porcentajeVotosValidos": 1.098,
+        "porcentajeVotosEmitidos": 0.812
+      },
+      {
+        "nombreAgrupacionPolitica": "FRENTE POPULAR AGRÍCOLA FÍA DEL PERÚ",
+        "codigoAgrupacionPolitica": 6,
+        "totalVotosValidos": 30213,
+        "porcentajeVotosValidos": 1.603,
+        "porcentajeVotosEmitidos": 1.185
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO APRISTA PERUANO",
+        "codigoAgrupacionPolitica": 12,
+        "totalVotosValidos": 38295,
+        "porcentajeVotosValidos": 2.032,
+        "porcentajeVotosEmitidos": 1.503
+      },
+      {
+        "nombreAgrupacionPolitica": "JUNTOS POR EL PERÚ",
+        "codigoAgrupacionPolitica": 10,
+        "totalVotosValidos": 58887,
+        "porcentajeVotosValidos": 3.125,
+        "porcentajeVotosEmitidos": 2.311
+      },
+      {
+        "nombreAgrupacionPolitica": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+        "codigoAgrupacionPolitica": 33,
+        "totalVotosValidos": 94501,
+        "porcentajeVotosValidos": 5.014,
+        "porcentajeVotosEmitidos": 3.708
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO PAÍS PARA TODOS",
+        "codigoAgrupacionPolitica": 23,
+        "totalVotosValidos": 127349,
+        "porcentajeVotosValidos": 6.757,
+        "porcentajeVotosEmitidos": 4.997
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO CÍVICO OBRAS",
+        "codigoAgrupacionPolitica": 14,
+        "totalVotosValidos": 150158,
+        "porcentajeVotosValidos": 7.967,
+        "porcentajeVotosEmitidos": 5.892
+      },
+      {
+        "nombreAgrupacionPolitica": "AHORA NACIÓN - AN",
+        "codigoAgrupacionPolitica": 2,
+        "totalVotosValidos": 157277,
+        "porcentajeVotosValidos": 8.345,
+        "porcentajeVotosEmitidos": 6.171
+      },
+      {
+        "nombreAgrupacionPolitica": "FUERZA POPULAR",
+        "codigoAgrupacionPolitica": 8,
+        "totalVotosValidos": 282048,
+        "porcentajeVotosValidos": 14.965,
+        "porcentajeVotosEmitidos": 11.067
+      },
+      {
+        "nombreAgrupacionPolitica": "PARTIDO DEL BUEN GOBIERNO",
+        "codigoAgrupacionPolitica": 16,
+        "totalVotosValidos": 330454,
+        "porcentajeVotosValidos": 17.534,
+        "porcentajeVotosEmitidos": 12.966
+      },
+      {
+        "nombreAgrupacionPolitica": "RENOVACIÓN POPULAR",
+        "codigoAgrupacionPolitica": 35,
+        "totalVotosValidos": 395400,
+        "porcentajeVotosValidos": 20.98,
+        "porcentajeVotosEmitidos": 15.514
+      }
+    ]
+  }
+}
