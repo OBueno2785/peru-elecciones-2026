@@ -5,6 +5,8 @@ Actualiza los JSON en data/ y señala al cache para reconstruirse.
 import asyncio
 import json
 import logging
+import os
+import tempfile
 from datetime import datetime
 from pathlib import Path
 import httpx
@@ -43,6 +45,47 @@ DISTRITOS = {
     23: "SAN MARTIN", 24: "TACNA", 25: "TUMBES", 26: "UCAYALI",
 }
 
+# ubigeo nivel 01 -> nombre departamento. Compartido con main.py (build_cache).
+UBIGEO_NOMBRE = {
+    10000: "AMAZONAS",    20000: "ANCASH",       30000: "APURIMAC",
+    40000: "AREQUIPA",    50000: "AYACUCHO",     60000: "CAJAMARCA",
+    70000: "CUSCO",       80000: "HUANCAVELICA", 90000: "HUANUCO",
+    100000: "ICA",        110000: "JUNIN",       120000: "LA LIBERTAD",
+    130000: "LAMBAYEQUE", 140000: "LIMA",        150000: "LORETO",
+    160000: "MADRE DE DIOS", 170000: "MOQUEGUA", 180000: "PASCO",
+    190000: "PIURA",      200000: "PUNO",        210000: "SAN MARTIN",
+    220000: "TACNA",      230000: "TUMBES",      240000: "UCAYALI",
+    250000: "CALLAO",
+}
+
+
+def write_json(path: Path, obj) -> None:
+    """Escribe JSON de forma atómica: archivo temporal + os.replace.
+
+    Evita que un corte a mitad de escritura deje un JSON corrupto que
+    rompa load_json en el backend.
+    """
+    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=path.name, suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(obj, f, ensure_ascii=False)
+        os.replace(tmp, path)
+    except Exception:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
+
+
+def _read_json(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
 
 async def _get(client: httpx.AsyncClient, url: str) -> dict:
     try:
@@ -71,148 +114,114 @@ async def fetch_fresh() -> bool:
         except Exception:
             pass
 
-        # ── 1. Presidencial nacional + mapa-calor ──────────────────────────
-        pres_part = await _get(client,
-            f"{BASE}/eleccion-presidencial/participantes-ubicacion-geografica-nombre"
-            f"?idEleccion=10&tipoFiltro=eleccion")
-        pres_tot = await _get(client,
-            f"{BASE}/resumen-general/totales?idEleccion=10&tipoFiltro=eleccion")
-        mapa_calor = await _get(client,
-            f"{BASE}/resumen-general/mapa-calor"
-            f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ambito_geografico")
+        # ── 1. Presidencial nacional + totales + mapa-calor ────────────────
+        part_url = (f"{BASE}/eleccion-presidencial/participantes-ubicacion-geografica-nombre"
+                    f"?idEleccion=10&tipoFiltro=eleccion")
+        tot_url  = f"{BASE}/resumen-general/totales?idEleccion=10&tipoFiltro=eleccion"
+        mc_url   = (f"{BASE}/resumen-general/mapa-calor"
+                    f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ambito_geografico")
+        pres_part, pres_tot, mapa_calor = await asyncio.gather(
+            _get(client, part_url), _get(client, tot_url), _get(client, mc_url),
+        )
 
         if pres_part.get("success"):
-            # Actualizar presidencial_full.json
-            pf_path = DATA_DIR / "presidencial_full.json"
-            existing = {}
-            if pf_path.exists():
-                existing = json.loads(pf_path.read_text(encoding="utf-8"))
-
-            part_url = (f"{BASE}/eleccion-presidencial/participantes-ubicacion-geografica-nombre"
-                        f"?idEleccion=10&tipoFiltro=eleccion")
-            tot_url  = f"{BASE}/resumen-general/totales?idEleccion=10&tipoFiltro=eleccion"
+            existing = _read_json(DATA_DIR / "presidencial_full.json")
             existing[part_url] = pres_part
             if pres_tot.get("success"):
                 existing[tot_url] = pres_tot
-            pf_path.write_text(json.dumps(existing, ensure_ascii=False), encoding="utf-8")
+            write_json(DATA_DIR / "presidencial_full.json", existing)
             log.info("Presidencial: %d candidatos", len(pres_part.get("data", [])))
             ok = True
 
         if mapa_calor.get("success"):
-            # Actualizar navigation_capture.json
-            nc_path = DATA_DIR / "navigation_capture.json"
-            nc = {}
-            if nc_path.exists():
-                nc = json.loads(nc_path.read_text(encoding="utf-8"))
-            mc_url = (f"{BASE}/resumen-general/mapa-calor"
-                      f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ambito_geografico")
+            nc = _read_json(DATA_DIR / "navigation_capture.json")
             nc.setdefault("presidencial_navigation", {})[mc_url] = mapa_calor
-            nc_path.write_text(json.dumps(nc, ensure_ascii=False), encoding="utf-8")
+            write_json(DATA_DIR / "navigation_capture.json", nc)
             log.info("Mapa-calor: %d departamentos", len(mapa_calor.get("data", [])))
 
-        # ── 2. Presidencial por departamento ──────────────────────────────
-        # Endpoint descubierto: GET con tipoFiltro=ubigeo_nivel_01 + idUbigeoDepartamento
-        UBIGEO_NOMBRE_PRES = {
-            10000: "AMAZONAS",    20000: "ANCASH",       30000: "APURIMAC",
-            40000: "AREQUIPA",    50000: "AYACUCHO",     60000: "CAJAMARCA",
-            70000: "CUSCO",       80000: "HUANCAVELICA", 90000: "HUANUCO",
-            100000: "ICA",        110000: "JUNIN",       120000: "LA LIBERTAD",
-            130000: "LAMBAYEQUE", 140000: "LIMA",        150000: "LORETO",
-            160000: "MADRE DE DIOS", 170000: "MOQUEGUA", 180000: "PASCO",
-            190000: "PIURA",      200000: "PUNO",        210000: "SAN MARTIN",
-            220000: "TACNA",      230000: "TUMBES",      240000: "UCAYALI",
-            250000: "CALLAO",
-        }
-        pres_dep = {}
-        for ubigeo, nombre in UBIGEO_NOMBRE_PRES.items():
-            pp = await _get(client,
-                f"{BASE}/resumen-general/participantes"
-                f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ubigeo_nivel_01&idUbigeoDepartamento={ubigeo}")
-            pt = await _get(client,
-                f"{BASE}/resumen-general/totales"
-                f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ubigeo_nivel_01&idUbigeoDepartamento={ubigeo}")
-            if pp.get("success") and pp.get("data"):
-                pres_dep[nombre] = {
-                    "participantes": pp["data"],
-                    "totales": pt.get("data", {}),
-                }
+        # ── 1b. Senado nacional (idEleccion=15) ────────────────────────────
+        # Mantiene fresco /api/senado-nacional, que lee de raw_capture.json.
+        sn_part_url = f"{BASE}/resumen-general/participantes?idEleccion=15&tipoFiltro=eleccion"
+        sn_tot_url  = f"{BASE}/resumen-general/totales?idEleccion=15&tipoFiltro=eleccion"
+        sn_part, sn_tot = await asyncio.gather(
+            _get(client, sn_part_url), _get(client, sn_tot_url),
+        )
+        if sn_part.get("success") and sn_part.get("data"):
+            raw = _read_json(DATA_DIR / "raw_capture.json")
+            raw[sn_part_url] = sn_part
+            if sn_tot.get("success"):
+                raw[sn_tot_url] = sn_tot
+            write_json(DATA_DIR / "raw_capture.json", raw)
+            log.info("Senado nacional: %d participantes", len(sn_part.get("data", [])))
 
+        # ── 2. Presidencial por departamento (en paralelo) ─────────────────
+        async def fetch_pres_dep(ubigeo: int, nombre: str):
+            base_q = (f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ubigeo_nivel_01"
+                      f"&idUbigeoDepartamento={ubigeo}")
+            pp, pt = await asyncio.gather(
+                _get(client, f"{BASE}/resumen-general/participantes{base_q}"),
+                _get(client, f"{BASE}/resumen-general/totales{base_q}"),
+            )
+            if pp.get("success") and pp.get("data"):
+                return nombre, {"participantes": pp["data"], "totales": pt.get("data", {})}
+            return nombre, None
+
+        pres_results = await asyncio.gather(
+            *[fetch_pres_dep(u, n) for u, n in UBIGEO_NOMBRE.items()]
+        )
+        pres_dep = {n: d for n, d in pres_results if d}
         if pres_dep:
-            (DATA_DIR / "presidencial_departamentos.json").write_text(
-                json.dumps(pres_dep, ensure_ascii=False), encoding="utf-8")
+            write_json(DATA_DIR / "presidencial_departamentos.json", pres_dep)
             log.info("Presidencial por departamento: %d departamentos", len(pres_dep))
 
         # ── 2b. Composición de votos certificados por JEE (estadoActa=JEE) ──
-        jee_dep = {}
-        for ubigeo, nombre in UBIGEO_NOMBRE_PRES.items():
+        async def fetch_jee_dep(ubigeo: int, nombre: str):
             jee_p = await _get(client,
                 f"{BASE}/resumen-general/participantes"
                 f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ubigeo_nivel_01"
                 f"&idUbigeoDepartamento={ubigeo}&estadoActa=JEE")
             if jee_p.get("success") and jee_p.get("data"):
-                jee_dep[nombre] = jee_p["data"]
+                return nombre, jee_p["data"]
+            return nombre, None
 
+        jee_results = await asyncio.gather(
+            *[fetch_jee_dep(u, n) for u, n in UBIGEO_NOMBRE.items()]
+        )
+        jee_dep = {n: d for n, d in jee_results if d}
         if jee_dep:
-            (DATA_DIR / "presidencial_jee_dep.json").write_text(
-                json.dumps(jee_dep, ensure_ascii=False), encoding="utf-8")
+            write_json(DATA_DIR / "presidencial_jee_dep.json", jee_dep)
             log.info("JEE por departamento: %d departamentos", len(jee_dep))
 
-        # ── 2c. Votos SOLO actas ONPE contabilizadas (excluyendo JEE) ────────
-        contab_dep = {}
-        for ubigeo, nombre in UBIGEO_NOMBRE_PRES.items():
-            cp = await _get(client,
-                f"{BASE}/resumen-general/participantes"
-                f"?idAmbitoGeografico=1&idEleccion=10&tipoFiltro=ubigeo_nivel_01"
-                f"&idUbigeoDepartamento={ubigeo}&estadoActa=CONTABILIZADA")
-            if cp.get("success") and cp.get("data"):
-                contab_dep[nombre] = cp["data"]
+        # ── 3. Senado regional (id 14) + Diputados (id 13) por distrito ────
+        async def fetch_distrito(cod: int, nombre: str):
+            sr_p, sr_t, dp_p, dp_t = await asyncio.gather(
+                _get(client, f"{BASE}/resumen-general/participantes"
+                     f"?idEleccion=14&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}"),
+                _get(client, f"{BASE}/resumen-general/totales"
+                     f"?idEleccion=14&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}"),
+                _get(client, f"{BASE}/resumen-general/participantes"
+                     f"?idEleccion=13&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}"),
+                _get(client, f"{BASE}/resumen-general/totales"
+                     f"?idEleccion=13&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}"),
+            )
+            sr = ({"participantes": sr_p["data"], "totales": sr_t.get("data", {})}
+                  if sr_p.get("success") and sr_p.get("data") else None)
+            dp = ({"participantes": dp_p["data"], "totales": dp_t.get("data", {})}
+                  if dp_p.get("success") and dp_p.get("data") else None)
+            return nombre, sr, dp
 
-        if contab_dep:
-            (DATA_DIR / "presidencial_contab_dep.json").write_text(
-                json.dumps(contab_dep, ensure_ascii=False), encoding="utf-8")
-            log.info("Contabilizadas por departamento: %d departamentos", len(contab_dep))
-
-        # ── 3. Senado regional + Diputados por distrito (httpx) ────────────
-        senado_reg = {}
-        diputados  = {}
-
-        for cod, nombre in DISTRITOS.items():
-            # Senado regional (idEleccion=14)
-            sr_p = await _get(client,
-                f"{BASE}/resumen-general/participantes"
-                f"?idEleccion=14&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}")
-            sr_t = await _get(client,
-                f"{BASE}/resumen-general/totales"
-                f"?idEleccion=14&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}")
-
-            if sr_p.get("success") and sr_p.get("data"):
-                senado_reg[nombre] = {
-                    "participantes": sr_p["data"],
-                    "totales": sr_t.get("data", {}),
-                }
-
-            # Diputados (idEleccion=13)
-            dp_p = await _get(client,
-                f"{BASE}/resumen-general/participantes"
-                f"?idEleccion=13&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}")
-            dp_t = await _get(client,
-                f"{BASE}/resumen-general/totales"
-                f"?idEleccion=13&tipoFiltro=distrito_electoral&idDistritoElectoral={cod}")
-
-            if dp_p.get("success") and dp_p.get("data"):
-                diputados[nombre] = {
-                    "participantes": dp_p["data"],
-                    "totales": dp_t.get("data", {}),
-                }
+        distrito_results = await asyncio.gather(
+            *[fetch_distrito(c, n) for c, n in DISTRITOS.items()]
+        )
+        senado_reg = {n: sr for n, sr, _ in distrito_results if sr}
+        diputados  = {n: dp for n, _, dp in distrito_results if dp}
 
         if senado_reg:
-            (DATA_DIR / "senado_regional_distritos.json").write_text(
-                json.dumps(senado_reg, ensure_ascii=False), encoding="utf-8")
+            write_json(DATA_DIR / "senado_regional_distritos.json", senado_reg)
             log.info("Senado regional: %d distritos", len(senado_reg))
 
         if diputados:
-            (DATA_DIR / "diputados_distritos.json").write_text(
-                json.dumps(diputados, ensure_ascii=False), encoding="utf-8")
+            write_json(DATA_DIR / "diputados_distritos.json", diputados)
             log.info("Diputados: %d distritos", len(diputados))
 
     log.info("Refresco completado: %s", datetime.now().strftime("%H:%M:%S"))

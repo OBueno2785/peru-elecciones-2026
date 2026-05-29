@@ -5,15 +5,20 @@ Sirve datos procesados de ONPE.
 import asyncio
 import json
 import logging
+import threading
+import time
 import unicodedata
+from collections import defaultdict
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 import refresher
+from refresher import UBIGEO_NOMBRE
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
 
@@ -22,7 +27,11 @@ FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
 _cache: Optional[dict] = None
 REFRESH_INTERVAL = 5 * 60  # 5 minutos
-_refresh_lock = asyncio.Lock()
+_refresh_lock = asyncio.Lock()      # serializa descargas de ONPE (async)
+_cache_lock = threading.Lock()      # serializa build_cache() entre peticiones sync
+# Cooldown del refresco manual público (anti-amplificación)
+REFRESH_COOLDOWN = 30
+_last_refresh_ts = 0.0
 
 
 def _invalidate():
@@ -50,7 +59,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Elecciones Peru 2026 API", lifespan=lifespan)
 app.add_middleware(
-    CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],
+    CORSMiddleware, allow_origins=["*"], allow_methods=["GET", "POST"], allow_headers=["*"],
 )
 
 # Colores fijos por partido (hex)
@@ -85,19 +94,33 @@ def norm(s: str) -> str:
     return s.upper().strip()
 
 
+_COLORES_NORM = {norm(k): v for k, v in COLORES_PARTIDO.items() if k != "DEFAULT"}
+# Claves ordenadas por longitud desc: ante varias coincidencias gana la más específica
+_COLORES_KEYS = sorted(_COLORES_NORM, key=len, reverse=True)
+
+
 def color_for(partido: str) -> str:
-    partido_norm = norm(partido)
-    for k, v in COLORES_PARTIDO.items():
-        if norm(k) in partido_norm or partido_norm in norm(k):
-            return v
+    p = norm(partido)
+    if p in _COLORES_NORM:
+        return _COLORES_NORM[p]
+    # Match en una sola dirección (clave contenida en el nombre), nunca al revés:
+    # evita que un nombre corto coincida con cualquier clave que lo contenga.
+    for k in _COLORES_KEYS:
+        if k in p:
+            return _COLORES_NORM[k]
     return COLORES_PARTIDO["DEFAULT"]
 
 
 def load_json(path: Path) -> dict:
     if not path.exists():
         return {}
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        # Un JSON corrupto (p. ej. escritura interrumpida) no debe tumbar la API
+        logging.getLogger(__name__).warning("load_json fallo en %s: %s", path, e)
+        return {}
 
 
 def top_candidatos(lista: list, n: int = 10) -> list:
@@ -221,7 +244,6 @@ def build_cache() -> dict:
 
     def aggregate_nacional(datos_por_nombre: dict) -> dict:
         """Agrega totales nacionales sumando votos por partido en todos los distritos."""
-        from collections import defaultdict
         EXCLUIR = {"VOTOS NULOS", "VOTOS EN BLANCO", "VOTOS IMPUGNADOS"}
         party_votes: dict = defaultdict(int)
         total_actas = 0
@@ -266,18 +288,8 @@ def build_cache() -> dict:
     pres_dep_raw = load_json(DATA_DIR / "presidencial_departamentos.json")
     mapa_pres_dep = build_mapa_distrito(pres_dep_raw) if pres_dep_raw else {}
 
-    # Para presidencial: combinar mapa-calor (progreso de conteo) con datos por departamento
-    UBIGEO_NOMBRE = {
-        10000: "AMAZONAS",   20000: "ANCASH",      30000: "APURIMAC",
-        40000: "AREQUIPA",   50000: "AYACUCHO",    60000: "CAJAMARCA",
-        70000: "CUSCO",      80000: "HUANCAVELICA", 90000: "HUANUCO",
-        100000: "ICA",       110000: "JUNIN",      120000: "LA LIBERTAD",
-        130000: "LAMBAYEQUE", 140000: "LIMA",       150000: "LORETO",
-        160000: "MADRE DE DIOS", 170000: "MOQUEGUA", 180000: "PASCO",
-        190000: "PIURA",     200000: "PUNO",       210000: "SAN MARTIN",
-        220000: "TACNA",     230000: "TUMBES",     240000: "UCAYALI",
-        250000: "CALLAO",
-    }
+    # Para presidencial: combinar mapa-calor (progreso de conteo) con datos por
+    # departamento. UBIGEO_NOMBRE se importa de refresher (fuente única).
     mapa_pres = {}
     for ubigeo, item in mapa_calor_data.items():
         nombre = UBIGEO_NOMBRE.get(ubigeo, str(ubigeo))
@@ -380,7 +392,6 @@ def _load_historial():
 
 def _append_historial(data: dict):
     """Guarda un snapshot solo cuando ONPE publicó datos nuevos (cambio real en votos)."""
-    from datetime import datetime, timezone
     top = data["presidencial"]["nacional"]["top"]
     actas = data["presidencial"]["nacional"]["totales"].get("actasContabilizadas", 0)
     if not top:
@@ -424,8 +435,11 @@ def _append_historial(data: dict):
 def get_data() -> dict:
     global _cache
     if _cache is None:
-        _cache = build_cache()
-        _append_historial(_cache)
+        with _cache_lock:
+            if _cache is None:
+                data = build_cache()
+                _append_historial(data)
+                _cache = data
     return _cache
 
 
@@ -499,11 +513,9 @@ def composicion_jee():
     pres_dep = load_json(DATA_DIR / "presidencial_departamentos.json")
 
     if not jee_dep:
-        from fastapi import HTTPException
         raise HTTPException(503, "Datos JEE no disponibles aún. Ejecuta /api/refresh.")
 
     # ── Acumular totales nacionales desde JEE ─────────────────────────────
-    from collections import defaultdict
     nac_votos: dict = defaultdict(int)
     nac_total = 0
     for nombre, cands in jee_dep.items():
@@ -708,7 +720,6 @@ def comparacion_actas():
     Nota: ONPE expone la misma composición de votos para ambos filtros estadoActa;
     la diferencia se refleja en votos absolutos, no en porcentajes.
     """
-    from collections import defaultdict
     EXCLUIR = {"VOTOS NULOS", "VOTOS EN BLANCO", "VOTOS IMPUGNADOS"}
 
     # ── Totales ONPE ─────────────────────────────────────────────────────────
@@ -935,7 +946,16 @@ ACTAS_PDF_DIR     = DATA_DIR / "actas_pdf"
 # Índice en memoria: id → {file, mesa, dept, prov, dist, estado, validos}
 _actas_index: list[dict] = []
 _actas_index_built = False
-_actas_index_lock = asyncio.Lock()
+_actas_index_lock = threading.Lock()
+
+
+def _ensure_actas_index():
+    """Construye el índice una sola vez, seguro ante peticiones concurrentes."""
+    if _actas_index_built:
+        return
+    with _actas_index_lock:
+        if not _actas_index_built:
+            _build_actas_index()
 
 
 def _build_actas_index():
@@ -1009,9 +1029,7 @@ def search_actas(
     page: int = 0,
     size: int = 30,
 ):
-    global _actas_index_built
-    if not _actas_index_built:
-        _build_actas_index()
+    _ensure_actas_index()
 
     results = _actas_index
     dept_n  = norm(dept)
@@ -1044,8 +1062,7 @@ def search_actas(
 
 @app.get("/api/actas/{acta_id}/data")
 def get_acta_data(acta_id: str):
-    if not _actas_index_built:
-        _build_actas_index()
+    _ensure_actas_index()
     entry = next((r for r in _actas_index if r["id"] == acta_id), None)
     if not entry:
         raise HTTPException(status_code=404, detail="Acta no encontrada")
@@ -1054,7 +1071,6 @@ def get_acta_data(acta_id: str):
 
 @app.get("/api/actas/{acta_id}/image")
 def get_acta_image(acta_id: str):
-    from fastapi.responses import Response
     pdf = _pdf_path_for(acta_id)
     if not pdf:
         raise HTTPException(status_code=404, detail="PDF no disponible para esta acta")
@@ -1064,11 +1080,21 @@ def get_acta_image(acta_id: str):
 
 @app.post("/api/refresh")
 async def refresh():
-    """Descarga datos frescos de ONPE y reconstruye el cache (atómico con lock)."""
-    await _fetch_and_invalidate()
-    _load_historial()
+    """Descarga datos frescos de ONPE y reconstruye el cache (atómico con lock).
+
+    Tiene un cooldown para que el endpoint público no pueda usarse para
+    amplificar tráfico hacia ONPE: dentro de la ventana devuelve el estado actual
+    sin re-descargar (el loop de fondo refresca cada 5 min de todas formas).
+    """
+    global _last_refresh_ts
+    now = time.monotonic()
+    en_cooldown = (now - _last_refresh_ts) < REFRESH_COOLDOWN
+    if not en_cooldown:
+        _last_refresh_ts = now
+        await _fetch_and_invalidate()
+        _load_historial()
     data = get_data()
-    return {"ok": True, "status": {
+    return {"ok": True, "cooldown": en_cooldown, "status": {
         "presidencial_mapa": len(data["presidencial"]["mapa"]),
         "senado_reg_mapa": len(data["senado_regional"]["mapa"]),
         "historial_puntos": len(_historial),
